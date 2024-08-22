@@ -7,47 +7,57 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.plugin.java.JavaPlugin;
+
+import net.araytar.mistycauldron.util.TileEntityStorageHelper;
 
 public class cauldronPlacedLogic implements Listener {
+    private final JavaPlugin pluginInstance;
+
+    public cauldronPlacedLogic(JavaPlugin pluginInstance) {
+        this.pluginInstance = pluginInstance;
+
+    }
 
     @EventHandler
-    public static void onCauldronPlaced(BlockPlaceEvent event) {
+    public void onCauldronPlaced(BlockPlaceEvent event) {
         Block block = event.getBlockPlaced();
         Player player = event.getPlayer();
         World world = block.getWorld();
 
         if (block.getType() == Material.CAULDRON) {
-            Location location = block.getLocation().clone();
-            location = location.subtract(0, 1, 0);
+            Location location = block.getLocation().clone().subtract(0,1,0);
+            TileEntityStorageHelper.setTileBlockData(block, "heatLevel", Integer.toString(checkFuelSource(block.getWorld(), location)), this.pluginInstance);
 
-            switch (world.getBlockAt(location).getType()) {
-                //Non-Superheated Blocks
-                case CAMPFIRE -> {
-                    break;
-                }
-                case MAGMA_BLOCK -> {
-                    break;
-                }
-                case FIRE -> {
-                    break;
-                }
-
-                //Superheated Blocks
-                case SOUL_FIRE -> {
-                    break;
-                }
-                case SOUL_CAMPFIRE -> {
-                    break;
-                }
-
-                default -> {
-                    break;
-                }
-            }
         }
     }
+    // Add or remove cases to add/remove heat levels for certain blocks.
+    // Config/Helper method
+    public static int checkFuelSource(World world, org.bukkit.Location location) {
+        switch (world.getBlockAt(location).getType()) {
+            //Non-Superheated Blocks
+            case CAMPFIRE -> {
+                return 1;
+            }
+            case MAGMA_BLOCK -> {
+                return 1;
+            }
+            case FIRE -> {
+                return 1;
+            }
 
-    public static cauldronPlacedLogic createcauldronPlacedLogic() {
-        return new cauldronPlacedLogic();
+            //Superheated Blocks
+            case SOUL_FIRE -> {
+                return 2;
+            }
+            case SOUL_CAMPFIRE -> {
+                return 2;
+            }
+
+            //Non heated
+            default -> {
+                return 0;
+            }
+        }
     }
 }
