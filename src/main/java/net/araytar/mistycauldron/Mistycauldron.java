@@ -1,8 +1,10 @@
 package net.araytar.mistycauldron;
 
 import net.araytar.mistycauldron.cauldron.cauldronPlacedLogic;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -10,10 +12,12 @@ import java.util.concurrent.TimeUnit;
 
 public final class Mistycauldron extends JavaPlugin {
     private ExecutorService executor;
+    public FileConfiguration config;
 
     @Override
     public void onEnable() {
         executor = Executors.newCachedThreadPool();
+        this.config = this.getConfig();
 
         //event register here :>
         getServer().getPluginManager().registerEvents(new cauldronPlacedLogic(this), this);
@@ -35,4 +39,6 @@ public final class Mistycauldron extends JavaPlugin {
             Thread.currentThread().interrupt();
         }
     }
+
+
 }
