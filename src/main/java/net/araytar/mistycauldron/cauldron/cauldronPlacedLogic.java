@@ -22,6 +22,8 @@ public class cauldronPlacedLogic implements Listener {
 
     }
 
+
+    //edit the Config.java file to change the blocks used to heat cauldrons.
     @EventHandler
     public void onCauldronPlaced(BlockPlaceEvent event) {
         Block block = event.getBlockPlaced();
@@ -30,9 +32,11 @@ public class cauldronPlacedLogic implements Listener {
         if (block.getType() == Material.CAULDRON) {
             Location location = block.getLocation().clone().subtract(0,1,0);
             if (config.getHeatedMaterials().contains(world.getBlockAt(location).getType())) {
-                TileEntityStorageHelper.setTileBlockData(block, "heatLevel", "1", this.pluginInstance);
-            } else if (config.getSoulHeatedBlocks().contains(world.getBlockAt(location).getType())){
-                TileEntityStorageHelper.setTileBlockData(block, "heatLevel", "1", this.pluginInstance);
+                TileEntityStorageHelper.setTileBlockData(block, config.getHeatLevelKey(), config.getHeatedCauldronValue(), this.pluginInstance);
+            } else if (config.getSoulHeatedMaterials().contains(world.getBlockAt(location).getType())){
+                TileEntityStorageHelper.setTileBlockData(block, config.getHeatLevelKey(), config.getSoulHeatedCauldronValue(), this.pluginInstance);
+            } else {
+                TileEntityStorageHelper.setTileBlockData(block, config.getHeatLevelKey(), config.getColdCauldronValue(), this.pluginInstance);
             }
         }
     }
@@ -40,5 +44,24 @@ public class cauldronPlacedLogic implements Listener {
     @EventHandler
     public void onHeatSourcePlaced(BlockPlaceEvent event) {
         Block block = event.getBlockPlaced();
+
+        if (config.getHeatedMaterials().contains(block.getType())) {
+            World world = block.getWorld();
+            Location location = block.getLocation().clone().add(0,1,0);
+            if (world.getBlockAt(location).getType() == Material.CAULDRON) {
+                Block cauldronBlock = world.getBlockAt(location);
+                TileEntityStorageHelper.setTileBlockData(cauldronBlock, config.getHeatLevelKey(), config.getHeatLevelKey(), this.pluginInstance);
+            }
+
+        } else if (config.getSoulHeatedMaterials().contains(block.getType())) {
+            World world = block.getWorld();
+            Location location = block.getLocation().clone().add(0,1,0);
+            if (world.getBlockAt(location).getType() == Material.CAULDRON) {
+                Block caudronBlock = world.getBlockAt(location);
+                TileEntityStorageHelper.setTileBlockData(caudronBlock, config.getHeatLevelKey(), config.getSoulHeatedCauldronValue(), this.pluginInstance);
+            }
+        }
     }
+
+
 }
