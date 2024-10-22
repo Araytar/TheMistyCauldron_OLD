@@ -1,6 +1,6 @@
-package net.araytar.mistycauldron.crafting;
+package net.araytar.mistycauldron.framework.crafting;
 
-import net.araytar.mistycauldron.Exceptions;
+import net.araytar.mistycauldron.framework.Exceptions;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
