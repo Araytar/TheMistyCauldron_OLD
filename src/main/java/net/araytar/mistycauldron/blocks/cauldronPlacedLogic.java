@@ -1,4 +1,4 @@
-package net.araytar.mistycauldron.cauldron;
+package net.araytar.mistycauldron.blocks;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -9,19 +9,18 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import net.araytar.mistycauldron.util.TileEntityStorageHelper;
-import net.araytar.mistycauldron.util.Config;
+import net.araytar.mistycauldron.framework.TileEntityStorageHelper;
+import net.araytar.mistycauldron.framework.Config;
 
 public class cauldronPlacedLogic implements Listener {
     private final Config config =  new Config();
     private final JavaPlugin pluginInstance;
 
-
+    //Constructor
     public cauldronPlacedLogic(JavaPlugin pluginInstance) {
         this.pluginInstance = pluginInstance;
 
     }
-
 
     //edit the Config.java file to change the blocks used to heat cauldrons.
     @EventHandler
@@ -62,6 +61,4 @@ public class cauldronPlacedLogic implements Listener {
             }
         }
     }
-
-
 }

@@ -1,5 +1,6 @@
-package net.araytar.mistycauldron.util;
+package net.araytar.mistycauldron.framework;
 
+import net.araytar.mistycauldron.item.Potion;
 import org.bukkit.Material;
 
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ public class Config {
     String coldCauldronValue;
     String heatedCauldronValue;
     String soulHeatedCauldronValue;
+    public final String constant = "constant";
 
     public Config() {
         //heated material config here
@@ -54,7 +56,6 @@ public class Config {
     public String getSoulHeatedCauldronValue() {
         return soulHeatedCauldronValue;
     }
-
 
 
 }

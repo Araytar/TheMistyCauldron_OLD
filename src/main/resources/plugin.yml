@@ -1,4 +1,4 @@
-name: mistycauldron
+name: TheMistyCauldron
 version: '0.0-EDV'
 main: net.araytar.mistycauldron.Mistycauldron
 api-version: '1.18'
