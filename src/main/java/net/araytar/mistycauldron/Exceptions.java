@@ -1,4 +1,4 @@
-package net.araytar.mistycauldron.framework;
+package net.araytar.mistycauldron;
 
 import org.bukkit.Material;
 
@@ -8,6 +8,6 @@ public class Exceptions {
     }
 
     public static void notAPercentNumber() throws Exception {
-        throw new Exception("pece");
+        throw new Exception("The given number is not a Percent number. (Can only be from 0 to 100)");
     }
 }

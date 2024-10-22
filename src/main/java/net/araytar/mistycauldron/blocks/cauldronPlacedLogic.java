@@ -9,8 +9,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import net.araytar.mistycauldron.framework.TileEntityStorageHelper;
-import net.araytar.mistycauldron.framework.Config;
+import net.araytar.mistycauldron.helper.TileEntityStorageHelper;
+import net.araytar.mistycauldron.Config;
 
 public class cauldronPlacedLogic implements Listener {
     private final Config config =  new Config();

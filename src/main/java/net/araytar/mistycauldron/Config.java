@@ -1,6 +1,5 @@
-package net.araytar.mistycauldron.framework;
+package net.araytar.mistycauldron;
 
-import net.araytar.mistycauldron.item.Potion;
 import org.bukkit.Material;
 
 import java.util.ArrayList;
@@ -44,15 +43,12 @@ public class Config {
     public String getHeatLevelKey() {
         return heatLevelKey;
     }
-
     public String getColdCauldronValue() {
         return coldCauldronValue;
     }
-
     public String getHeatedCauldronValue() {
         return heatedCauldronValue;
     }
-
     public String getSoulHeatedCauldronValue() {
         return soulHeatedCauldronValue;
     }

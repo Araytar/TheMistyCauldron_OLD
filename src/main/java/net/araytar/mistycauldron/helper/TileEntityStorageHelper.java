@@ -1,4 +1,4 @@
-package net.araytar.mistycauldron.framework;
+package net.araytar.mistycauldron.helper;
 
 import org.bukkit.NamespacedKey;
 import org.bukkit.block.Block;
