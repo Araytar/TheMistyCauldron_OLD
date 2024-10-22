@@ -1,4 +1,4 @@
-package net.araytar.mistycauldron;
+package net.araytar.mistycauldron.framework;
 
 import org.bukkit.Material;
 

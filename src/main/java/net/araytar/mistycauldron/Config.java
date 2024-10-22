@@ -16,28 +16,20 @@ public class Config {
 
     public Config() {
         //heated material config here
-        heatedMaterials.add(Material.CAMPFIRE);
-        heatedMaterials.add(Material.MAGMA_BLOCK);
         heatedMaterials.add(Material.LAVA);
         heatedMaterials.add(Material.FIRE);
+        heatedMaterials.add(Material.CAMPFIRE);
+        heatedMaterials.add(Material.MAGMA_BLOCK);
 
         //superheated material config here
         soulHeatedMaterials.add(Material.SOUL_FIRE);
         soulHeatedMaterials.add(Material.SOUL_CAMPFIRE);
 
         //heatLevel
-        heatLevelKey = "heatLevel";
         coldCauldronValue = "0";
         heatedCauldronValue = "1";
+        heatLevelKey = "heatLevel";
         soulHeatedCauldronValue = "2";
-    }
-
-    public ArrayList<Material> getHeatedMaterials() {
-        return this.heatedMaterials;
-    }
-
-    public ArrayList<Material> getSoulHeatedMaterials() {
-        return this.soulHeatedMaterials;
     }
 
     public String getHeatLevelKey() {
@@ -52,6 +44,11 @@ public class Config {
     public String getSoulHeatedCauldronValue() {
         return soulHeatedCauldronValue;
     }
-
+    public ArrayList<Material> getHeatedMaterials() {
+        return this.heatedMaterials;
+    }
+    public ArrayList<Material> getSoulHeatedMaterials() {
+        return this.soulHeatedMaterials;
+    }
 
 }

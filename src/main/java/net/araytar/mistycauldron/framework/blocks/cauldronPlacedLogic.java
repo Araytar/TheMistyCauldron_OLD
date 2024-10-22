@@ -1,4 +1,4 @@
-package net.araytar.mistycauldron.blocks;
+package net.araytar.mistycauldron.framework.blocks;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -9,7 +9,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import net.araytar.mistycauldron.helper.TileEntityStorageHelper;
+import net.araytar.mistycauldron.framework.helper.TileEntityStorageHelper;
 import net.araytar.mistycauldron.Config;
 
 public class cauldronPlacedLogic implements Listener {

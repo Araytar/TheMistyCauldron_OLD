@@ -1,6 +1,6 @@
 package net.araytar.mistycauldron;
 
-import net.araytar.mistycauldron.blocks.cauldronPlacedLogic;
+import net.araytar.mistycauldron.framework.blocks.cauldronPlacedLogic;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.concurrent.ExecutorService;
@@ -35,6 +35,4 @@ public final class Mistycauldron extends JavaPlugin {
             Thread.currentThread().interrupt();
         }
     }
-
-
 }

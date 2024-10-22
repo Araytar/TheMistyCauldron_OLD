@@ -1,6 +1,6 @@
-package net.araytar.mistycauldron.registers;
+package net.araytar.mistycauldron.framework.registers;
 
-import net.araytar.mistycauldron.crafting.Potion;
+import net.araytar.mistycauldron.framework.crafting.Potion;
 
 import java.util.ArrayList;
 import java.util.HashMap;
