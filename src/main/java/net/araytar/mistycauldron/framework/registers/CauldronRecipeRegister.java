@@ -1,6 +1,6 @@
 package net.araytar.mistycauldron.framework.registers;
 
-import net.araytar.mistycauldron.framework.crafting.Potion;
+import net.araytar.mistycauldron.framework.crafting.CauldronRecipe;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,13 +9,13 @@ import java.util.Map;
 
 //A basic class to store and work with cauldronRecipes.
 public class CauldronRecipeRegister {
-    private static final Map<String, Potion> cauldronRecipes = new HashMap<>();
+    private static final Map<String, CauldronRecipe> cauldronRecipes = new HashMap<>();
 
-    public static void registerItem(String key, Potion recipe) {
+    public static void registerItem(String key, CauldronRecipe recipe) {
         cauldronRecipes.put(key, recipe);
     }
 
-    public static Potion get(String identifier) {
+    public static CauldronRecipe get(String identifier) {
         return cauldronRecipes.get(identifier);
     }
 
@@ -23,15 +23,15 @@ public class CauldronRecipeRegister {
         return cauldronRecipes.containsKey(identifier);
     }
 
-    public static boolean hasRecipe(Potion potion) {
-        return cauldronRecipes.containsValue(potion);
+    public static boolean hasRecipe(CauldronRecipe cauldronRecipe) {
+        return cauldronRecipes.containsValue(cauldronRecipe);
     }
 
     public static void removeItem(String key) {
         cauldronRecipes.remove(key);
     }
 
-    public static List<Potion> getAll() {
+    public static List<CauldronRecipe> getAll() {
         return new ArrayList<>(cauldronRecipes.values());
     }
 }

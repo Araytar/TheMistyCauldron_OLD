@@ -1,4 +1,4 @@
-package net.araytar.mistycauldron.framework.blocks;
+package net.araytar.mistycauldron.framework.blocks.listeners;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
