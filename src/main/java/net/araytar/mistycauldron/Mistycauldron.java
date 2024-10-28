@@ -1,6 +1,7 @@
 package net.araytar.mistycauldron;
 
-import net.araytar.mistycauldron.framework.blocks.cauldronPlacedLogic;
+import net.araytar.mistycauldron.framework.blocks.listeners.cauldronPlacedLogic;
+import net.araytar.mistycauldron.framework.item.listeners.PotionConsumedListener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.concurrent.ExecutorService;
@@ -17,6 +18,7 @@ public final class Mistycauldron extends JavaPlugin {
 
         //event register here
         getServer().getPluginManager().registerEvents(new cauldronPlacedLogic(this), this);
+        getServer().getPluginManager().registerEvents(new PotionConsumedListener(this), this);
     }
 
     @Override
