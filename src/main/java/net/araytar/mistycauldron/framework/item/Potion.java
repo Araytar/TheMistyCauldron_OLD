@@ -1,7 +1,13 @@
 package net.araytar.mistycauldron.framework.item;
 
+import net.araytar.mistycauldron.framework.registers.PotionRegister;
 import org.bukkit.Color;
+import org.bukkit.entity.Player;
+import org.bukkit.event.Event;
+import net.araytar.mistycauldron.Mistycauldron;
+import org.bukkit.event.player.PlayerItemConsumeEvent;
 
+//Don't change anything in here before reading the docs!
 public abstract class Potion {
 
         protected String displayName;
@@ -25,5 +31,12 @@ public abstract class Potion {
             this.lore = lore;
         }
 
-        public void onConsumed() {}
-    }
+        public void build() {
+            //this right here is the way2go.
+            Mistycauldron.potionRegister.registerItem(identifier, this);
+        }
+
+        public void onConsumed(PlayerItemConsumeEvent event) {}
+
+    public abstract void onConsumed();
+}

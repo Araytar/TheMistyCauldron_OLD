@@ -1,37 +1,37 @@
 package net.araytar.mistycauldron.framework.registers;
 
-import net.araytar.mistycauldron.framework.crafting.CauldronRecipe;
+import net.araytar.mistycauldron.framework.item.Potion;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-//A basic class to store and work with potions.
+//Don't change anything in here before reading the docs!
 public class PotionRegister {
-    private static final Map<String, CauldronRecipe> potions = new HashMap<>();
+    private static final Map<String, Potion> potions = new HashMap<>();
 
-    public static void registerItem(String key, CauldronRecipe recipe) {
-        potions.put(key, recipe);
+    public void registerItem(String key, Potion potion) {
+        potions.put(key, potion);
     }
 
-    public static CauldronRecipe get(String identifier) {
+    public Potion get(String identifier) {
         return potions.get(identifier);
     }
 
-    public static boolean hasKey(String identifier) {
+    public boolean hasKey(String identifier) {
         return potions.containsKey(identifier);
     }
 
-    public static boolean hasRecipe(CauldronRecipe cauldronRecipe) {
-        return potions.containsValue(cauldronRecipe);
+    public boolean hasPotion(Potion potion) {
+        return potions.containsValue(potion);
     }
 
-    public static void removeItem(String key) {
+    public void removeItem(String key) {
         potions.remove(key);
     }
 
-    public static List<CauldronRecipe> getAll() {
+    public List<Potion> getAll() {
         return new ArrayList<>(potions.values());
     }
 }
