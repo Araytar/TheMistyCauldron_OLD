@@ -2,6 +2,7 @@ package net.araytar.mistycauldron;
 
 import net.araytar.mistycauldron.framework.blocks.listeners.cauldronPlacedLogic;
 import net.araytar.mistycauldron.framework.item.listeners.PotionConsumedListener;
+import net.araytar.mistycauldron.framework.registers.PotionRegister;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.concurrent.ExecutorService;
@@ -11,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 public final class Mistycauldron extends JavaPlugin {
     private ExecutorService executor;
+    public static PotionRegister potionRegister = new PotionRegister();
 
     @Override
     public void onEnable() {
